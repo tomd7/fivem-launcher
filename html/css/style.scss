@@ -1,0 +1,228 @@
+$white: #e3e3e3;
+$black: #1E1E1E;
+$danger: #d00000;
+
+// Animations
+@-webkit-keyframes load {
+  from { transform: rotate(0) }
+  to { transform: rotate(360deg) }
+}
+@keyframes load {
+  from { transform: rotate(0) }
+  to { transform: rotate(360deg) }
+}
+
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button.btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+a.btn {
+  text-decoration: none;
+  color: inherit;
+  font-size: .9rem;
+  cursor: pointer;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+.background-image {
+  z-index: -10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 120%;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.glass {
+  background: rgba($white, .3);
+  background: linear-gradient(to right bottom, rgba($white, .7), rgba($white, .3));
+  border-radius: .6rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 5px 6px 10px rgba($black, .3);
+}
+
+.page-content {
+  height: 50vh;
+  width: 60vh;
+  position: relative;
+  max-height: 500px;
+  max-width: 600px;
+  min-height: 325px;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+
+  .server-name {
+    text-align: center;
+    padding: 1.4rem;
+  }
+
+  .information {
+    padding: 1rem 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.3rem;
+
+    .player-count {
+      font-weight: 600;
+    }
+
+    .social-media {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: .7rem 0;
+
+      a .icon {
+        width: 32px;
+        height: 32px;
+        fill: $black;
+      }
+
+      a {
+        margin-right: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      a:last-child { margin: 0; }
+    }
+  }
+
+  .btn-play-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    width: 100%;
+
+    .btn-play {
+      padding: 1rem;
+      font-weight: bold;
+      width: fit-content;
+      background: white;
+      border-radius: .4rem;
+      transition: background .1s linear;
+    }
+    .btn-play:active {
+      background: darken(white, 4);
+    }
+  }
+}
+
+.btn-clear-cache {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  padding: .5rem;
+  transition: background 1s linear;
+
+  .icon {
+    fill: $white;
+  }
+}
+
+.btn-clear-cache:active {
+  background: linear-gradient(to right bottom, rgba(darken($white, 5), .7), rgba(darken($white, 5), .3));
+
+  .icon {
+    fill: darken($white, 5);
+  }
+}
+
+.confirm-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1.5rem;
+  background: white;
+  border-radius: .4rem;
+
+  .message {
+    font-weight: bold;
+  }
+
+  .btn-group {
+    display: flex;
+    justify-content: right;
+    margin-top: 1rem;
+
+    .btn {
+      padding: .7rem;
+      border-radius: .3rem;
+      font-weight: 600;
+    }
+
+    .btn-confirm {
+      background: $danger;
+      color: white;
+      margin-right: .8rem;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .loader {
+        position: absolute;
+        display: none;
+        width: 1rem;
+        height: 1rem;
+        border: .3rem solid white;
+        border-radius: 50%;
+        border-right-color: transparent;
+        -webkit-animation: 2s linear infinite load;
+        -o-animation: 2s linear infinite load;
+        animation: 2s linear infinite load;
+      }
+    }
+    .btn-confirm:active {
+      background: lighten($danger, 3);
+    }
+
+    .btn-confirm.loading {
+      color: transparent;
+
+      .loader {
+        display: block;
+      }
+    }
+
+    .btn-deny {
+      background: $white;
+    }
+    .btn-deny:active {
+      background: darken($white, 3);
+    }
+  }
+}

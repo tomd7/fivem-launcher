@@ -1,0 +1,216 @@
+@-webkit-keyframes load {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes load {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button.btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+a.btn {
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+.background-image {
+  z-index: -10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 120%;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.glass {
+  background: rgba(227, 227, 227, 0.3);
+  background: linear-gradient(to right bottom, rgba(227, 227, 227, 0.7), rgba(227, 227, 227, 0.3));
+  border-radius: 0.6rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 5px 6px 10px rgba(30, 30, 30, 0.3);
+}
+
+.page-content {
+  height: 50vh;
+  width: 60vh;
+  position: relative;
+  max-height: 500px;
+  max-width: 600px;
+  min-height: 325px;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+.page-content .server-name {
+  text-align: center;
+  padding: 1.4rem;
+}
+.page-content .information {
+  padding: 1rem 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.3rem;
+}
+.page-content .information .player-count {
+  font-weight: 600;
+}
+.page-content .information .social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.7rem 0;
+}
+.page-content .information .social-media a .icon {
+  width: 32px;
+  height: 32px;
+  fill: #1E1E1E;
+}
+.page-content .information .social-media a {
+  margin-right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page-content .information .social-media a:last-child {
+  margin: 0;
+}
+.page-content .btn-play-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+  width: 100%;
+}
+.page-content .btn-play-container .btn-play {
+  padding: 1rem;
+  font-weight: bold;
+  width: fit-content;
+  background: white;
+  border-radius: 0.4rem;
+  transition: background 0.1s linear;
+}
+.page-content .btn-play-container .btn-play:active {
+  background: whitesmoke;
+}
+
+.btn-clear-cache {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  padding: 0.5rem;
+  transition: background 1s linear;
+}
+.btn-clear-cache .icon {
+  fill: #e3e3e3;
+}
+
+.btn-clear-cache:active {
+  background: linear-gradient(to right bottom, rgba(214, 214, 214, 0.7), rgba(214, 214, 214, 0.3));
+}
+.btn-clear-cache:active .icon {
+  fill: #d6d6d6;
+}
+
+.confirm-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1.5rem;
+  background: white;
+  border-radius: 0.4rem;
+}
+.confirm-panel .message {
+  font-weight: bold;
+}
+.confirm-panel .btn-group {
+  display: flex;
+  justify-content: right;
+  margin-top: 1rem;
+}
+.confirm-panel .btn-group .btn {
+  padding: 0.7rem;
+  border-radius: 0.3rem;
+  font-weight: 600;
+}
+.confirm-panel .btn-group .btn-confirm {
+  background: #d00000;
+  color: white;
+  margin-right: 0.8rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.confirm-panel .btn-group .btn-confirm .loader {
+  position: absolute;
+  display: none;
+  width: 1rem;
+  height: 1rem;
+  border: 0.3rem solid white;
+  border-radius: 50%;
+  border-right-color: transparent;
+  -webkit-animation: 2s linear infinite load;
+  -o-animation: 2s linear infinite load;
+  animation: 2s linear infinite load;
+}
+.confirm-panel .btn-group .btn-confirm:active {
+  background: #df0000;
+}
+.confirm-panel .btn-group .btn-confirm.loading {
+  color: transparent;
+}
+.confirm-panel .btn-group .btn-confirm.loading .loader {
+  display: block;
+}
+.confirm-panel .btn-group .btn-deny {
+  background: #e3e3e3;
+}
+.confirm-panel .btn-group .btn-deny:active {
+  background: #dbdbdb;
+}
+
+/*# sourceMappingURL=style.css.map */
